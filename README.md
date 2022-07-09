@@ -1,4 +1,8 @@
-### Hi there 👋
+## Hi there 👋 I'm Giorgi
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/GioDalakishvili?color=231d9bf0&logo=twitter&style=flat-square)](https://twitter.com/GioDalakishvili)
+[![Website](https://img.shields.io/website?down_color=grey&down_message=https%3A%2F%2Fgiorgi.dev&logo=rss&style=flat-square&up_color=green&up_message=https%3A%2F%2Fgiorgi.dev&url=https%3A%2F%2Fgiorgi.dev)](https://giorgi.dev)
+[![Hire Giorgi](https://img.shields.io/static/v1?label=Hire&message=Giorgi&color=3863A0&style=flat-square&logo=toptal)](https://www.toptal.com/N5jr6J/worlds-top-talent)
 
 I am a software developer with more than a decade of experience. I work mainly with C#, ASP.NET MVC/ASP.NET Core, Xamarin, Android, iOS, Entity Framework, REST, WCF, Azure, SQL Server and Oracle. [Top 1% on Stack Overflow](https://stackoverflow.com/users/239438/giorgi?tab=topactivity) and member of [Top 3% freelance software developers network.](https://www.toptal.com/N5jr6J/worlds-top-talent)
 
