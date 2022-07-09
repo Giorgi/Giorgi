@@ -4,11 +4,11 @@ I am a software developer with more than a decade of experience. I work mainly w
 
 Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https://giorgi.dev/blog/) and [Follow me on Twitter](https://twitter.com/GioDalakishvili)
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Giorgi)](https://github.com/Giorgi/)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Giorgi&theme=gruvbox_duo)](https://giorgi.dev/blog/)
 
 
-![](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/overview.svg)
-![](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/languages.svg)
+[![GitHub Statistics](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/overview.svg)](https://twitter.com/GioDalakishvili)
+[![GitHub Top Languages](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/languages.svg)](https://www.toptal.com/N5jr6J/worlds-top-talent)
 
 <!--
 **Giorgi/Giorgi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
