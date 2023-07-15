@@ -5,9 +5,9 @@
 [![Hire Giorgi](https://img.shields.io/static/v1?label=Hire&message=Giorgi&color=3863A0&style=flat-square&logo=toptal)](https://www.toptal.com/resume/giorgi-dalakishvili/N5jr6J/worlds-top-talent)
 [![Sponsor Giorgi](https://img.shields.io/badge/%24%24-Sponsor%20Me-85bb65?style=flat-square&logo=Github)](https://github.com/sponsors/Giorgi)
 
-I am a software developer with more than a decade of experience. I work mainly with C#, ASP.NET MVC/ASP.NET Core, Xamarin, Android, iOS, Entity Framework, REST, WCF, Azure, SQL Server and Oracle. [Top 1% on Stack Overflow](https://stackoverflow.com/users/239438/giorgi?tab=topactivity) and member of [Top 3% freelance software developers network.](https://www.toptal.com/N5jr6J/worlds-top-talent)
+I am a software developer with more than a decade of experience. I work mainly with C#, ASP.NET Core, MAUI, Xamarin, Android, iOS, Entity Framework, REST, GraphQL, Azure, SQL Server and Oracle. [Top 1% on Stack Overflow](https://stackoverflow.com/users/239438/giorgi?tab=topactivity), member of [Top 3% freelance software developers network.](https://www.toptal.com/N5jr6J/worlds-top-talent) and [InfoQ Editor](https://www.infoq.com/profile/Giorgi-Dalakishvili/)
 
-Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https://giorgi.dev/blog/) and [Follow me on Twitter](https://twitter.com/GioDalakishvili)
+Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https://giorgi.dev/blog/) and [Follow me on Twitter](https://twitter.com/GioDalakishvili) and [Follow me on InfoQ](https://www.infoq.com/profile/Giorgi-Dalakishvili/)
 
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Giorgi&theme=gruvbox_duo&hide_border=true)](https://giorgi.dev/blog/)
 
