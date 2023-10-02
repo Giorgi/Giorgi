@@ -9,7 +9,7 @@ I am a software developer with more than a decade of experience. He works mainly
 
 Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https://giorgi.dev/blog/) and [Follow me on Twitter](https://twitter.com/GioDalakishvili) and [Follow me on InfoQ](https://www.infoq.com/profile/Giorgi-Dalakishvili/)
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Giorgi&theme=gruvbox_duo&hide_border=true)](https://giorgi.dev/blog/)
+[![GitHub Streak](https://github-readme-streak-stats-weld-one.vercel.app?user=Giorgi&theme=gruvbox_duo&hide_border=true)](https://giorgi.dev/blog/)
 
 
 [![GitHub Statistics](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/overview.svg)](https://twitter.com/GioDalakishvili)
