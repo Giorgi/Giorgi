@@ -12,8 +12,8 @@ Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https:
 [![GitHub Streak](https://github-readme-streak-stats-weld-one.vercel.app?user=Giorgi&theme=gruvbox_duo&hide_border=true)](https://giorgi.dev/blog/)
 
 
-[![GitHub Statistics](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/overview.svg)](https://twitter.com/GioDalakishvili)
-[![GitHub Top Languages](https://raw.githubusercontent.com/Giorgi/github-stats-transparent/output/generated/languages.svg)](https://www.toptal.com/N5jr6J/worlds-top-talent)
+[![GitHub Statistics](https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/overview.svg)](https://twitter.com/GioDalakishvili)
+[![GitHub Top Languages](https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/languages.svg)](https://www.toptal.com/N5jr6J/worlds-top-talent)
 
 <!--
 **Giorgi/Giorgi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
