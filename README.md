@@ -11,9 +11,17 @@ Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https:
 
 [![GitHub Streak](https://github-readme-streak-stats-weld-one.vercel.app?user=Giorgi&theme=gruvbox_duo&hide_border=true)](https://giorgi.dev/blog/)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/overview.svg#gh-dark-mode-only">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/overview.svg#gh-light-mode-only">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
 
-[![GitHub Statistics](https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/overview.svg)](https://twitter.com/GioDalakishvili)
-[![GitHub Top Languages](https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/languages.svg)](https://www.toptal.com/N5jr6J/worlds-top-talent)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/languages.svg#gh-dark-mode-only">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/languages.svg#gh-light-mode-only">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
 
 <!--
 **Giorgi/Giorgi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
