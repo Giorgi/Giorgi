@@ -15,7 +15,7 @@ Check out my [portfolio](https://giorgi.dev/portfolio/) or read my [blog](https:
 
 [![GitHub Streak](https://github-readme-streak-stats-weld-one.vercel.app?user=Giorgi&theme=gruvbox_duo&hide_border=true)](https://giorgi.dev/blog/)
 
-[![Giorgi's GitHub stats](https://github-stats-extended.vercel.app/api?username=Giorgi&show_icons=true&theme=transparent)](https://giorgi.dev/blog/)
+[![Giorgi's GitHub stats](https://github-stats-extended.vercel.app/api?username=Giorgi&show_icons=true&theme=transparent&include_all_commits=true)](https://giorgi.dev/blog/)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Giorgi/github-stats/master/generated/overview.svg#gh-dark-mode-only">
