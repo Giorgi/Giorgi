@@ -11,7 +11,7 @@ I build .NET database libraries and developer tools:
 - **[EntityFramework.Exceptions](https://github.com/Giorgi/EntityFramework.Exceptions)** - typed exceptions for EF Core across five database providers
 - **[EFCore.Visualizer](https://github.com/Giorgi/EFCore.Visualizer)** - query plans inside the Visual Studio debugger
 
-**<!--nuget-downloads-->38M+<!--/nuget-downloads--> NuGet downloads**, **<!--github-stars-->4,000+<!--/github-stars--> stars**.
+**<!--nuget-downloads-->42M+<!--/nuget-downloads--> NuGet downloads**, **<!--github-stars-->4,200+<!--/github-stars--> stars**.
 
 3x [Microsoft MVP](https://mvp.microsoft.com/en-US/mvp/profile/e96c7912-ea3e-4fde-b8d3-745d6b07b31b), [Top 1% on Stack Overflow](https://stackoverflow.com/users/239438/giorgi?tab=topactivity), and a member of the [Top 3% freelance software developers network](https://www.toptal.com/N5jr6J/worlds-top-talent). Based in Tbilisi.
 
