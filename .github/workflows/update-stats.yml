@@ -1,0 +1,113 @@
+name: Update stats
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+# No permissions by default; the job asks for what it needs.
+permissions: {}
+
+jobs:
+  stats:
+    name: Update the NuGet download and star counts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Adds up the downloads of every package owned by Giorgi on nuget.org and writes the total, rounded down to
+      # whole millions, between the nuget-downloads markers in README.md.
+      - name: Count the downloads
+        shell: python
+        run: |
+          import json, re, urllib.request
+
+          # NuGet's search service has several replicas, and some of them update download counts weeks later than
+          # others. Counts only grow, so the largest total is the most recent one.
+          def count(host):
+              total, skip = 0, 0
+              while True:
+                  url = f"https://{host}.nuget.org/query?q=owner:Giorgi&prerelease=true&semVerLevel=2.0.0&take=100&skip={skip}"
+                  with urllib.request.urlopen(url, timeout=30) as response:
+                      page = json.load(response)
+                  total += sum(package["totalDownloads"] for package in page["data"])
+                  skip += 100
+                  if skip >= page["totalHits"]:
+                      return total
+
+          totals = {}
+          for host in ["azuresearch-usnc", "azuresearch-ussc", "azuresearch-ea", "azuresearch-sea"]:
+              try:
+                  totals[host] = count(host)
+              except Exception as error:
+                  print(f"{host}: {error}")
+          print(totals)
+          total = max(totals.values(), default=0)
+
+          # A failed or empty search must not overwrite the count.
+          if total < 1_000_000:
+              raise SystemExit(f"Unexpected total of {total} downloads")
+
+          text = f"{total // 1_000_000}M+"
+          print(f"{total} downloads: {text}")
+
+          with open("README.md", encoding="utf-8", newline="") as file:
+              readme = file.read()
+          updated, count = re.subn(r"(<!--nuget-downloads-->).*?(<!--/nuget-downloads-->)",
+                                   rf"\g<1>{text}\g<2>", readme)
+          if count != 1:
+              raise SystemExit("README.md has no nuget-downloads markers")
+          with open("README.md", "w", encoding="utf-8", newline="") as file:
+              file.write(updated)
+
+      # Adds up the stars of the public repositories Giorgi owns, without forks, and writes the total, rounded to
+      # the nearest hundred, between the github-stars markers in README.md.
+      - name: Count the stars
+        shell: python
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          import json, os, re, urllib.request
+
+          total, page = 0, 1
+          while True:
+              request = urllib.request.Request(
+                  f"https://api.github.com/users/Giorgi/repos?type=owner&per_page=100&page={page}",
+                  headers={"Authorization": f"Bearer {os.environ['GH_TOKEN']}", "Accept": "application/vnd.github+json"})
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  repos = json.load(response)
+              if not repos:
+                  break
+              total += sum(repo["stargazers_count"] for repo in repos if not repo["fork"])
+              page += 1
+
+          # A failed or empty listing must not overwrite the count.
+          if total < 1_000:
+              raise SystemExit(f"Unexpected total of {total} stars")
+
+          # Rounds half up: 4,149 gives 4,100 and 4,150 gives 4,200. Python's round() would round 4,250 down to 4,200.
+          text = f"{(total + 50) // 100 * 100:,}+"
+          print(f"{total} stars: {text}")
+
+          with open("README.md", encoding="utf-8", newline="") as file:
+              readme = file.read()
+          updated, count = re.subn(r"(<!--github-stars-->).*?(<!--/github-stars-->)",
+                                   rf"\g<1>{text}\g<2>", readme)
+          if count != 1:
+              raise SystemExit("README.md has no github-stars markers")
+          with open("README.md", "w", encoding="utf-8", newline="") as file:
+              file.write(updated)
+
+      - name: Commit the new counts
+        run: |
+          if git diff --quiet; then
+            echo "The counts did not change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update the NuGet download and star counts"
+          git push
