@@ -3,6 +3,7 @@
 [![Bluesky Follow](https://img.shields.io/badge/follow-%40Giorgi%20Dalakishvili-blue?style=flat-square&logo=Bluesky)](https://bsky.app/profile/giorgi.dev)
 [![Website](https://img.shields.io/website?down_color=grey&down_message=https%3A%2F%2Fgiorgi.dev&logo=rss&style=flat-square&up_color=green&up_message=https%3A%2F%2Fgiorgi.dev&url=https%3A%2F%2Fgiorgi.dev)](https://giorgi.dev)
 [![Sponsor Giorgi](https://img.shields.io/badge/%24%24-Sponsor%20Me-85bb65?style=flat-square&logo=Github)](https://github.com/sponsors/Giorgi)
+[![listed on git.ge](https://git.ge/badge.svg)](https://git.ge/@giorgi/)
 
 I build .NET database libraries and developer tools:
 
