@@ -1,0 +1,90 @@
+name: Count stats
+
+# A reusable workflow that counts Giorgi's NuGet downloads and GitHub stars. It runs with the caller's token, so
+# each repository that shows the counts calls it and commits the results with its own token: this one from
+# update-stats.yml, the site from Giorgi/giorgi.dev's update-stats.yml.
+on:
+  workflow_call:
+    outputs:
+      downloads:
+        description: The downloads of every package owned by Giorgi on nuget.org, rounded down to whole millions, such as 42M+
+        value: ${{ jobs.count.outputs.downloads }}
+      stars:
+        description: The stars of the public repositories Giorgi owns, without forks, rounded to the nearest hundred, such as 4,200+
+        value: ${{ jobs.count.outputs.stars }}
+
+jobs:
+  count:
+    name: Count the NuGet downloads and stars
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      downloads: ${{ steps.downloads.outputs.text }}
+      stars: ${{ steps.stars.outputs.text }}
+    steps:
+      - name: Count the downloads
+        id: downloads
+        shell: python
+        run: |
+          import json, os, urllib.request
+
+          # NuGet's search service has several replicas, and some of them update download counts weeks later than
+          # others. Counts only grow, so the largest total is the most recent one.
+          def count(host):
+              total, skip = 0, 0
+              while True:
+                  url = f"https://{host}.nuget.org/query?q=owner:Giorgi&prerelease=true&semVerLevel=2.0.0&take=100&skip={skip}"
+                  with urllib.request.urlopen(url, timeout=30) as response:
+                      page = json.load(response)
+                  total += sum(package["totalDownloads"] for package in page["data"])
+                  skip += 100
+                  if skip >= page["totalHits"]:
+                      return total
+
+          totals = {}
+          for host in ["azuresearch-usnc", "azuresearch-ussc", "azuresearch-ea", "azuresearch-sea"]:
+              try:
+                  totals[host] = count(host)
+              except Exception as error:
+                  print(f"{host}: {error}")
+          print(totals)
+          total = max(totals.values(), default=0)
+
+          # A failed or empty search must not overwrite the count.
+          if total < 1_000_000:
+              raise SystemExit(f"Unexpected total of {total} downloads")
+
+          text = f"{total // 1_000_000}M+"
+          print(f"{total} downloads: {text}")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as file:
+              file.write(f"text={text}\n")
+
+      - name: Count the stars
+        id: stars
+        shell: python
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          import json, os, urllib.request
+
+          total, page = 0, 1
+          while True:
+              request = urllib.request.Request(
+                  f"https://api.github.com/users/Giorgi/repos?type=owner&per_page=100&page={page}",
+                  headers={"Authorization": f"Bearer {os.environ['GH_TOKEN']}", "Accept": "application/vnd.github+json"})
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  repos = json.load(response)
+              if not repos:
+                  break
+              total += sum(repo["stargazers_count"] for repo in repos if not repo["fork"])
+              page += 1
+
+          # A failed or empty listing must not overwrite the count.
+          if total < 1_000:
+              raise SystemExit(f"Unexpected total of {total} stars")
+
+          # Rounds half up: 4,149 gives 4,100 and 4,150 gives 4,200. Python's round() would round 4,250 down to 4,200.
+          text = f"{(total + 50) // 100 * 100:,}+"
+          print(f"{total} stars: {text}")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as file:
+              file.write(f"text={text}\n")
